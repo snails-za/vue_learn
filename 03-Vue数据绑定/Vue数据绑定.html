@@ -1,0 +1,42 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-02 17:16:02
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-02 17:37:16
+ * @FilePath: /vue_learn/03-Vue数据绑定/Vue数据绑定.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue数据绑定</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <dir id="root">
+        单向数据绑定：<input type="text" v-bind:value="name">
+        单向数据绑定简写：<input type="text" :value="name">
+        <br>
+        双向数据绑定：<input type="text" v-model:value="name">
+        双向数据绑定简写：<input type="text" v-model="name">
+        <br>
+        <!-- 以下代码是错误的！v-model 只能用在表单类元素上【默认收集value属性】 -->
+        <h2 v-model:x="name">你好啊</h2>
+
+    </dir>
+
+    <script>
+        Vue.config.productionTip = false
+
+        new Vue({
+            el: "#root",
+            data: {
+                name: "vue"
+            }
+        })
+    </script>
+</body>
+</html>

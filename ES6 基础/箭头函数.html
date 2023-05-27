@@ -1,0 +1,77 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-03 12:56:32
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-04 20:35:58
+ * @FilePath: /vue_learn/ES6 基础/箭头函数.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <script>
+        Vue.config.productionTip = false;
+
+        // 1. 声明函数
+        const a = function(a, b){
+            return a+b;
+        };
+
+        const b = (a,b) => {
+            return a+b;
+        };
+        console.log(a(1,2));
+        console.log(b(1,2));
+
+        // 2. 对于普通函数来说，内部的this指向函数运行时所在的对象，但是这一点对箭头函数不成立。
+        // 它没有自己的this对象，内部的this就是定义时上层作用域中的this。
+        // 也就是说，箭头函数内部的this指向是固定的，相比之下，普通函数的this指向是可变的。
+        function getName() {
+            console.log(this.name);
+        }
+        let getName2 = () => {
+            console.log(this.name);
+        }
+        window.name = "window";
+        const school = {
+            name: "清华"
+        }
+        // 直接调用
+        getName();
+        getName2();
+
+        // call方法调用
+        getName.call(school);
+        getName2.call(school);
+
+        // 3.不能实例化
+        // var c  = new getName2()
+        // console.log(c);
+
+        // 4.不能使用arguments参数
+        // let fn = () => {
+        //     // console.log(arguments);
+        // }
+        // fn(1,2,3)
+
+        // 5. 剪头函数的简写
+        // a.省略小括号，当行参只有一个的时候
+        // let cc = (n) => {
+        let cc = n => {
+            return n + n;
+        }
+        console.log(cc(2));
+        // b.省略大括号，当代吗只有一条语句的时候
+        let dd = n => n + n;
+        console.log(dd(2));
+
+    </script>
+</body>
+</html>

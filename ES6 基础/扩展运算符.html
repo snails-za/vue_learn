@@ -1,0 +1,29 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-04 21:32:22
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-04 21:35:21
+ * @FilePath: /vue_learn/ES6 基础/扩展运算符.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <script>
+        // [...]扩展运算符能够将【数组】转换为逗号分隔的【参数序列】
+        // 声明一个序列
+        const a = [1,2,3,45,5];
+        function b() {
+            console.log(arguments);
+        }
+        b(...a); // b(1,2,3,45,5)
+    </script>
+</body>
+</html>

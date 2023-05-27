@@ -1,0 +1,47 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-06 16:05:28
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-06 16:09:48
+ * @FilePath: /vue_learn/ES6 基础/生成器函数实例.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数实例</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <script>
+        // 1s - 111  2s - 222 3s - 333
+        let a = () => {
+            setTimeout(() => {
+                console.log(111);
+            }, 1000)
+        }
+        let b = () => {
+            setTimeout(() => {
+                console.log(222);
+            }, 2000)
+        }
+        let c = () => {
+            setTimeout(() => {
+                console.log(333);
+            }, 3000)
+        }
+        function * gen (){
+            yield a();
+            yield b();
+            yield c();
+        }
+        let g = gen();
+        for (const item of g) {
+            console.log(item);
+        }
+    </script>
+</body>
+</html>

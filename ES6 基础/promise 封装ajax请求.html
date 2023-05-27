@@ -1,0 +1,52 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-06 17:09:20
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-06 18:10:44
+ * @FilePath: /vue_learn/ES6 基础/promise 封装ajax请求.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise封装ajax请求</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <script>
+        const p = Promise(function(resolve, reject){
+            // 接口地址；https://api.apiopen.top/
+            // 1. 创建对象
+            const xhr = new XMLHttpRequest();
+            
+            // 2.初始化
+            xhr.open("GET", "https://api.apiopen.top/")
+
+            // 3.发送
+            xhr.send();
+
+            // 4.绑定事件，处理响应结果
+            xhr.onreadystatechange = function() {
+                // 判断
+                if (xhr.readyState === 4){
+                    if (xhr.status >= 200 && xhr.status < 300){
+                        // 成功
+                        resolve(xhr.response);
+                    } else {
+                        // 失败
+                        reject(xhr.status);
+                    }
+                }
+            }
+        })
+        p.then(function(value){
+            console.log(value);
+        }, function(reason){
+            console.error(reason);
+        })
+    </script>
+</body>
+</html>

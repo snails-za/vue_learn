@@ -1,0 +1,45 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-02 16:51:02
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-02 17:36:58
+ * @FilePath: /vue_learn/02-Vue模板语法/模板语法.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue模板语法</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>hello, {{ name }}</h3>
+        <br>
+        <h1>指令语法</h1>
+        <a v-bind:href="sites.url.toUpperCase()">百度</a>
+        <a :href="sites.url">{{ sites.name }}</a>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+
+        new Vue({
+            el: "#root",
+            data: {
+                name: "vue",
+                sites:{
+                    url: "http://www.baidu.com",
+                    name: "百度2"
+                }
+            }
+        })
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-02 18:15:48
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-02 22:47:20
+ * @FilePath: /vue_learn/05-MVVM模型/MVVM模型.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVVM模型</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- MVVM模型：
+        1. M：模型，Vue对象data中的数据；
+        2. V: View，模板代码；
+        3. VM： Vue对象。
+
+    观察发现：
+        1. data中的所有属性最终都出现在了Vue实例对象身上。
+        2. Vue实例对象身上的所有属性及Vue原型的属性，在Vue模板上都可以直接使用。 -->
+    <div id="root">
+        学校名称:{{name}}
+        <br>
+        学校地址：{{address}}
+        <br>
+        测试：{{_c}}
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+        
+        const vm = new Vue({
+            el: "#root",
+            data: {
+                name: "清华",
+                address: "北京"
+            }
+        })
+        console.log(vm)
+    </script>
+</body>
+</html>

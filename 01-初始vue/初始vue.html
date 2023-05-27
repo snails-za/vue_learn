@@ -1,0 +1,35 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-02 15:03:51
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-02 17:37:09
+ * @FilePath: /vue_learn/01-初始vue/初始vue.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初始Vue</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>Hello {{ name }}!</h1>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el: "#root",  // 用户指定当前Vue实例为那个容器服务，值通常为CSS选择器字符串：document.getElementById("root")
+            data: {  // data用于存储数据，数据供el所指定的容器使用，值我们先写成一个对象
+                name: "World",
+                age: 18
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!--
+ * @Author: wangju wangjuchn@outlook.com
+ * @Date: 2022-06-06 16:18:44
+ * @LastEditors: wangju wangjuchn@outlook.com
+ * @LastEditTime: 2022-06-06 16:31:57
+ * @FilePath: /vue_learn/ES6 基础/promise基本语法.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise 基本用法</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <script>
+        // 实例化 Promise 对象
+        const p = new Promise (function(resolve, reject){
+            setTimeout(()=>{
+                // 异步操作
+                // 成功
+                // let data = "数据库中的用户数据";
+                // resolve(data);
+                // 失败
+                reason = "失败原因";
+                reject(reason)
+            }, 1000)
+        });
+        // 调用promise的then方法
+        p.then(function(value){
+            console.log(value);
+        }, function(reason){
+            console.log(reason);
+        })
+    </script>
+</body>
+</html>
